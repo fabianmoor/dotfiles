@@ -1,0 +1,92 @@
+{
+  "schemes" : [
+    {
+      "buttons" : {
+        "mappings" : [
+          {
+            "command" : false,
+            "button" : 5,
+            "control" : false,
+            "action" : "missionControl",
+            "option" : false,
+            "shift" : false
+          }
+        ]
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0xb034",
+          "serialNumber" : "DED18CBB",
+          "category" : "mouse",
+          "vendorID" : "0x46d",
+          "productName" : "MX Master 3S"
+        }
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "distance" : {
+          "vertical" : 1
+        },
+        "speed" : {
+          "vertical" : 0
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0.9,
+        "disableAcceleration" : true
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "trackpad",
+          "vendorID" : "0x5ac",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "productID" : "0x343"
+        }
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "vendorID" : "0x4c",
+          "productID" : "0x269",
+          "productName" : "Fabian’s Magic Mouse",
+          "category" : "mouse",
+          "serialNumber" : "10:CF:0F:E9:64:6E"
+        }
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "productID" : "0xc548",
+          "category" : "mouse",
+          "vendorID" : "0x46d",
+          "productName" : "USB Receiver"
+        }
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
+      }
+    }
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+}

@@ -1,0 +1,114 @@
+# Reference: https://github.com/i3/i3/blob/next/etc/config
+
+# i3 doesn't have "normalizations" feature that why we disable them here.
+# But the feature is very helpful.
+# Normalizations eliminate all sorts of weird tree configurations that don't make sense.
+# Give normalizations a chance and enable them back.
+# after-startup-command = ['exec-and-forget sketchybar']
+# exec-on-workspace-change = ['/bin/bash', '-c',
+#     'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+# ]
+
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = false
+
+# Mouse follows focus when focused monitor changes
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center'] # Mouse lazily follows any focus (window or workspace)
+
+[gaps]
+inner.horizontal = 5
+inner.vertical = 5
+outer.top = 10
+
+[mode.main.binding]
+    # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
+    cmd-ctrl-alt-enter = '''exec-and-forget osascript -e '
+    tell application "Terminal"
+        do script
+        activate
+    end tell'
+    '''
+
+    # i3 wraps focus by default
+    cmd-ctrl-alt-h =         'focus --boundaries-action wrap-around-the-workspace left'
+    cmd-ctrl-alt-j =         'focus --boundaries-action wrap-around-the-workspace down'
+    cmd-ctrl-alt-k =         'focus --boundaries-action wrap-around-the-workspace up'
+    cmd-ctrl-alt-l =         'focus --boundaries-action wrap-around-the-workspace right'
+
+    cmd-ctrl-alt-shift-h = 'move left'
+    cmd-ctrl-alt-shift-j = 'move down'
+    cmd-ctrl-alt-shift-k = 'move up'
+    cmd-ctrl-alt-shift-l = 'move right'
+
+    # Consider using 'join-with' command as a 'split' replacement if you want to enable
+    # normalizations
+    cmd-ctrl-alt-p = 'split horizontal'
+    cmd-ctrl-alt-o = 'split vertical'
+
+    cmd-ctrl-alt-f = 'fullscreen'
+
+    cmd-ctrl-alt-s = 'layout v_accordion' # 'layout stacking' in i3
+    cmd-ctrl-alt-w = 'layout h_accordion' # 'layout tabbed' in i3
+    cmd-ctrl-alt-e = 'layout tiles vertical horizontal' # 'layout toggle split' in i3
+
+    cmd-ctrl-alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+
+    # Not supported, because this command is redundant in AeroSpace mental model.
+    # See: https://nikitabobko.github.io/AeroSpace/guide#floating-windows
+    #cmd-ctrl-alt-space = 'focus toggle_tiling_floating'
+
+    # `focus parent`/`focus child` are not yet supported, and it's not clear whether they
+    # should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
+    # cmd-ctrl-alt-a = 'focus parent'
+
+    cmd-ctrl-alt-1 = 'workspace 1'
+    cmd-ctrl-alt-2 = 'workspace 2'
+    cmd-ctrl-alt-3 = 'workspace 3'
+    cmd-ctrl-alt-4 = 'workspace 4'
+    cmd-ctrl-alt-5 = 'workspace 5'
+    cmd-ctrl-alt-6 = 'workspace 6'
+    cmd-ctrl-alt-7 = 'workspace 7'
+    cmd-ctrl-alt-8 = 'workspace 8'
+    cmd-ctrl-alt-9 = 'workspace 9'
+    cmd-ctrl-alt-0 = 'workspace 10'
+
+    cmd-ctrl-alt-shift-1 = 'move-node-to-workspace 1'
+    cmd-ctrl-alt-shift-2 = 'move-node-to-workspace 2'
+    cmd-ctrl-alt-shift-3 = 'move-node-to-workspace 3'
+    cmd-ctrl-alt-shift-4 = 'move-node-to-workspace 4'
+    cmd-ctrl-alt-shift-5 = 'move-node-to-workspace 5'
+    cmd-ctrl-alt-shift-6 = 'move-node-to-workspace 6'
+    cmd-ctrl-alt-shift-7 = 'move-node-to-workspace 7'
+    cmd-ctrl-alt-shift-8 = 'move-node-to-workspace 8'
+    cmd-ctrl-alt-shift-9 = 'move-node-to-workspace 9'
+    cmd-ctrl-alt-shift-0 = 'move-node-to-workspace 10'
+
+    cmd-ctrl-alt-shift-c = 'reload-config'
+
+    cmd-ctrl-alt-r = 'mode resize'
+    cmd-ctrl-alt-d = 'mode move'
+
+[mode.resize.binding]
+    h = 'resize width -50'
+    j = 'resize height +50'
+    k = 'resize height -50'
+    l = 'resize width +50'
+    enter = 'mode main'
+    esc = 'mode main'
+    cmd-ctrl-alt-r = 'mode main'
+
+[mode.move.binding]
+    cmd-ctrl-alt-1 = 'move-node-to-workspace 1'
+    cmd-ctrl-alt-2 = 'move-node-to-workspace 2'
+    cmd-ctrl-alt-3 = 'move-node-to-workspace 3'
+    cmd-ctrl-alt-4 = 'move-node-to-workspace 4'
+    cmd-ctrl-alt-5 = 'move-node-to-workspace 5'
+    cmd-ctrl-alt-6 = 'move-node-to-workspace 6'
+    cmd-ctrl-alt-7 = 'move-node-to-workspace 7'
+    cmd-ctrl-alt-8 = 'move-node-to-workspace 8'
+    cmd-ctrl-alt-9 = 'move-node-to-workspace 9'
+
+    enter = 'mode main'
+    esc = 'mode main'
+    cmd-ctrl-alt-d = 'mode main'
